@@ -1,0 +1,75 @@
+{% extends "Airlineapp/base.html" %}
+
+{% block body %}
+    <div class="card w-50">
+        <div class="card-body">
+            <form action="" method="POST">
+                {{ passenger_form.non_field_errors }}
+                {% csrf_token %}
+                <div class="row mb-3">
+                    <div class="col-sm-3">
+                        <h6 class="mb-0">{{ passenger_form.first_name.label_tag }}</h6>
+                    </div>
+                    <div class="col-sm-9 text-secondary">
+                        {{ passenger_form.first_name }}
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <div class="col-sm-3">
+                        <h6 class="mb-0">{{ passenger_form.last_name.label_tag }}</h6>
+                    </div>
+                    <div class="col-sm-9 text-secondary">
+                        {{ passenger_form.last_name }}
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <div class="col-sm-3">
+                        <h6 class="mb-0">{{ passenger_form.email.label_tag }}</h6>
+                    </div>
+                    <div class="col-sm-9 text-secondary">
+                        {{ passenger_form.email }}
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <div class="col-sm-3">
+                        <h6 class="mb-0">{{ passenger_form.phone.label_tag }}</h6>
+                    </div>
+                    <div class="col-sm-9 text-secondary">
+                        {{ passenger_form.phone }}
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <div class="col-sm-3">
+                        <h6 class="mb-0">{{ passenger_form.street.label_tag }}</h6>
+                    </div>
+                    <div class="col-sm-9 text-secondary">
+                        {{ passenger_form.street }}
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <div class="col-sm-3">
+                        <h6 class="mb-0">{{ passenger_form.city.label_tag }}</h6>
+                    </div>
+                    <div class="col-sm-9 text-secondary">
+                        {{ passenger_form.city }}
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <div class="col-sm-3">
+                        <h6 class="mb-0">{{ passenger_form.country.label_tag }}</h6>
+                    </div>
+                    <div class="col-sm-9 text-secondary">
+                        {{ passenger_form.country }}
+                    </div>
+                </div>
+                <div class="row">
+                <div class="col-sm-3"></div>
+                    <div class="col-sm-9 text-secondary">
+                        <a class="btn btn-danger" href="{% url 'passengers' %}">Cancel</a>
+                        <input type="submit" class="btn btn-primary px-4" name="Submit" value="Save Changes">
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+{% endblock %}

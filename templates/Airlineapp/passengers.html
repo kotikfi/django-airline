@@ -1,0 +1,51 @@
+{% extends "Airlineapp/base.html" %}
+
+{% block body %}
+    <script>
+        $(document).ready(function () {
+        $('#passengers').DataTable();
+        });
+    </script>
+
+    <h1>List of Passengers</h1><br>
+
+    <a class="btn btn-success" href="{% url 'new_passenger' %}">Add passenger</a><br><br>
+
+    <table id="passengers" class="table table-striped table-bordered" style="width:100%">
+        <thead>
+            <tr>
+                <th>Detail</th>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Address</th>
+                <th>Phone</th>
+                <th>Email</th>
+                <th>Edit or delete</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for passenger in passengers %}
+                <tr>
+                    <td><a class="btn btn-primary" href="{% url 'passenger_profile' passenger.passenger_id %}">Detail</a></td>
+                    <td>{{ passenger.passenger_id }}</td>
+                    <td>{{ passenger.first_name }} {{ passenger.last_name }}</td>
+                    <td>{{ passenger.street }}, {{ passenger.city }}, {{ passenger.country }}</td>
+                    <td>{{ passenger.phone }}</td>
+                    <td>{{ passenger.email }}</td>
+                    <td><a class="btn btn-sm btn-info" href="{% url 'edit_passenger_profile' passenger.passenger_id %}">Edit</a>  <a class="btn btn-sm btn-danger" href="{% url 'delete_passenger' passenger.passenger_id %}">Delete</a></td>
+                </tr>
+            {% endfor %}
+        </tbody>
+        <tfoot>
+            <tr>
+                <th>Detail</th>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Address</th>
+                <th>Phone</th>
+                <th>Email</th>
+                <th>Edit or delete</th>
+            </tr>
+        </tfoot>
+    </table>
+{% endblock %}

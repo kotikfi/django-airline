@@ -1,0 +1,55 @@
+{% extends "Airlineapp/base.html" %}
+
+{% block body %}
+    <script>
+        $(document).ready(function () {
+        $('#flights').DataTable();
+        });
+    </script>
+
+    <h1>Flight List</h1><br>
+
+    <a class="btn btn-success" href="{% url 'new_flight' %}">Create new flight</a><br><br>
+
+    <table id="flights" class="table table-striped table-bordered" style="width:100%">
+    <thead>
+        <tr>
+            <th>Detail</th>
+            <th>ID</th>
+            <th>Departure airport</th>
+            <th>Destination airport</th>
+            <th>Departure time</th>
+            <th>Destination time</th>
+            <th>Aircraft</th>
+            <th>Edit or delete</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for flight in flights %}
+            <tr>
+                <td><a class="btn btn-primary" href="{% url 'flight_detail' flight.flight_id %}">Detail</a></td>
+                <td>{{ flight.flight_id }}</td>
+                <td>{{ flight.dpt_airport }}</td>
+                <td>{{ flight.dst_airport }}</td>
+                <td>{{ flight.dpt_time|date:"d. m. Y H:i" }}</td>
+                <td>{{ flight.dst_time|date:"d. m. Y H:i" }}</td>
+                <td>{{ flight.aircraft }}</td>
+                <td><a class="btn btn-sm btn-info" href="{% url 'edit_flight' flight.flight_id %}">Edit</a>  <a class="btn btn-sm btn-danger" href="{% url 'delete_flight' flight.flight_id %}">Delete</a></td>
+            </tr>
+        {% endfor %}
+    </tbody>
+    <tfoot>
+        <tr>
+            <th>Detail</th>
+            <th>ID</th>
+            <th>Departure airport</th>
+            <th>Destination airport</th>
+            <th>Departure time</th>
+            <th>Destination time</th>
+            <th>Aircraft</th>
+            <th>Edit or delete</th>
+        </tr>
+    </tfoot>
+</table>
+
+{% endblock %}

@@ -1,0 +1,19 @@
+{% extends "Airlineapp/base.html" %}
+
+{% block body %}
+    <br>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card card-body">
+                <p>Are you sure you want to delete <mark class="text-danger">{{ flight }}</mark>?</p>
+
+                <form action="{% url 'delete_flight' flight.flight_id %}" method="POST">
+                    {% csrf_token %}
+                    <a class="btn btn-warning" href="{% url 'flights' %}">Cancel</a>
+                    <input class="btn btn-danger" type="submit" name="Confirm" value="Confirm">
+                </form>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

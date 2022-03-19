@@ -1,0 +1,11 @@
+{% extends "Airlineapp/base.html" %}
+
+{% block body %}
+    <div class="p-5 text-center">
+        <h1 class="mb-3">Airline company</h1>
+        <div class="d-grid gap-1 col-1 mx-auto">
+            <a class="btn btn-primary btn-lg" href="{% url 'flights' %}">Flights</a><br>
+            <a class="btn btn-primary btn-lg" href="{% url 'passengers' %}">Passengers</a>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,142 @@
+{% extends "Airlineapp/base.html" %}
+
+{% block body %}
+    <div class="container">
+		<div class="main-body">
+            <br><br>
+			<div class="row">
+				<div class="col-md-4 mb-3">
+                  <div class="card">
+                    <div class="card-body">
+                      <div class="d-flex flex-column align-items-center text-center">
+                        <img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="Admin" class="rounded-circle" width="150">
+                        <div class="mt-3">
+                          <h4>{{ passenger.first_name }} {{ passenger.last_name }}</h4>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+				<div class="col-lg-8">
+					<div class="card">
+						<div class="card-body">
+                            <form action="" method="POST">
+                                {{ passenger_form.non_field_errors }}
+                                {% csrf_token %}
+                                <div class="row mb-3">
+                                    <div class="col-sm-3">
+                                        <h6 class="mb-0">{{ passenger_form.first_name.label_tag }}</h6>
+                                    </div>
+                                    <div class="col-sm-9 text-secondary">
+                                        {{ passenger_form.first_name }}
+                                    </div>
+                                </div>
+                                <div class="row mb-3">
+                                    <div class="col-sm-3">
+                                        <h6 class="mb-0">{{ passenger_form.last_name.label_tag }}</h6>
+                                    </div>
+                                    <div class="col-sm-9 text-secondary">
+                                        {{ passenger_form.last_name }}
+                                    </div>
+                                </div>
+                                <div class="row mb-3">
+                                    <div class="col-sm-3">
+                                        <h6 class="mb-0">{{ passenger_form.email.label_tag }}</h6>
+                                    </div>
+                                    <div class="col-sm-9 text-secondary">
+                                        {{ passenger_form.email }}
+                                    </div>
+                                </div>
+                                <div class="row mb-3">
+                                    <div class="col-sm-3">
+                                        <h6 class="mb-0">{{ passenger_form.phone.label_tag }}</h6>
+                                    </div>
+                                    <div class="col-sm-9 text-secondary">
+                                        {{ passenger_form.phone }}
+                                    </div>
+                                </div>
+                                <div class="row mb-3">
+                                    <div class="col-sm-3">
+                                        <h6 class="mb-0">{{ passenger_form.street.label_tag }}</h6>
+                                    </div>
+                                    <div class="col-sm-9 text-secondary">
+                                        {{ passenger_form.street }}
+                                    </div>
+                                </div>
+                                <div class="row mb-3">
+                                    <div class="col-sm-3">
+                                        <h6 class="mb-0">{{ passenger_form.city.label_tag }}</h6>
+                                    </div>
+                                    <div class="col-sm-9 text-secondary">
+                                        {{ passenger_form.city }}
+                                    </div>
+                                </div>
+                                <div class="row mb-3">
+                                    <div class="col-sm-3">
+                                        <h6 class="mb-0">{{ passenger_form.country.label_tag }}</h6>
+                                    </div>
+                                    <div class="col-sm-9 text-secondary">
+                                        {{ passenger_form.country }}
+                                    </div>
+                                </div>
+                                <div class="row">
+								<div class="col-sm-3"></div>
+                                    <div class="col-sm-9 text-secondary">
+                                        <a class="btn btn-danger" href="{% url 'passenger_profile' passenger.passenger_id %}">Cancel</a>
+                                        <input type="submit" class="btn btn-primary px-4" name="Submit" value="Save Changes">
+                                    </div>
+							    </div>
+                            </form>
+{#							<div class="row mb-3">#}
+{#								<div class="col-sm-3">#}
+{#									<h6 class="mb-0">Full Name</h6>#}
+{#								</div>#}
+{#								<div class="col-sm-9 text-secondary">#}
+{#									<input type="text" class="form-control" value="John Doe">#}
+{#								</div>#}
+{#							</div>#}
+{#							<div class="row mb-3">#}
+{#								<div class="col-sm-3">#}
+{#									<h6 class="mb-0">Email</h6>#}
+{#								</div>#}
+{#								<div class="col-sm-9 text-secondary">#}
+{#									<input type="text" class="form-control" value="john@example.com">#}
+{#								</div>#}
+{#							</div>#}
+{#							<div class="row mb-3">#}
+{#								<div class="col-sm-3">#}
+{#									<h6 class="mb-0">Phone</h6>#}
+{#								</div>#}
+{#								<div class="col-sm-9 text-secondary">#}
+{#									<input type="text" class="form-control" value="(239) 816-9029">#}
+{#								</div>#}
+{#							</div>#}
+{#							<div class="row mb-3">#}
+{#								<div class="col-sm-3">#}
+{#									<h6 class="mb-0">Mobile</h6>#}
+{#								</div>#}
+{#								<div class="col-sm-9 text-secondary">#}
+{#									<input type="text" class="form-control" value="(320) 380-4539">#}
+{#								</div>#}
+{#							</div>#}
+{#							<div class="row mb-3">#}
+{#								<div class="col-sm-3">#}
+{#									<h6 class="mb-0">Address</h6>#}
+{#								</div>#}
+{#								<div class="col-sm-9 text-secondary">#}
+{#									<input type="text" class="form-control" value="Bay Area, San Francisco, CA">#}
+{#								</div>#}
+{#							</div>#}
+{#							<div class="row">#}
+{#								<div class="col-sm-3"></div>#}
+{#								<div class="col-sm-9 text-secondary">#}
+{#									<input type="button" class="btn btn-primary px-4" value="Save Changes">#}
+{#								</div>#}
+{#							</div>#}
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+{% endblock %}
