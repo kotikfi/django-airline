@@ -1,6 +1,6 @@
 # Django Airline
 ## About
-__Django Airline__ is a web application built with [Django](https://www.djangoproject.com/) used for managing a simple airline. It allows you to manage flights, planes, employees and customers. 
+Web application built with [Django](https://www.djangoproject.com/) used for managing a simple airline. It allows you to manage flights, planes, employees and customers. 
 
 ![Screenshot 2022-06-03 20 32 01](https://user-images.githubusercontent.com/101512405/171925278-080e8885-36f0-464d-b3a3-2d0b97bb2776.png)
 ### Built With
